@@ -40,8 +40,8 @@ def cleanup():
 def convert_wem(input_path, output_path):
     subprocess.run([
         VGMSTREAM_EXE,  # Executable
-        '-o', output_path,  # Output path
-        input_path  # Input path
+        '-o', str(output_path),  # Output path
+        str(input_path)  # Input path
     ])
 
 
@@ -100,7 +100,7 @@ def main(argv):
                     os.chdir(TMP_PATH)  # Go to tmp directory for bnkextr output
 
                     i = 1
-                    subprocess.run([BANK_EXTR_EXE, wwise_path / soundbank['Path']])  # Extract soundbank to cwd
+                    subprocess.run([BANK_EXTR_EXE, str(wwise_path / soundbank['Path'])])  # Extract soundbank to cwd
                     for file in soundbank['IncludedMemoryFiles']:
 
                         # Prefetched files are actually in ReferencedStreamedFiles and should thus be skipped

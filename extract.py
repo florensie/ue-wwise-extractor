@@ -5,6 +5,7 @@ import subprocess
 import os
 import shutil
 
+# Require python 3.6 or above
 assert sys.version_info >= (3, 6)
 
 # File paths
@@ -76,10 +77,13 @@ def main(argv):
         dict_ = json.loads(json_path.read_bytes())
         if 'SoundBanksInfo' in dict_:  # Make sure json file is a soundbank meta
             for soundbank in dict_['SoundBanksInfo']['SoundBanks']:
-                print(f'Bank: {soundbank["ShortName"]}')
+                print(f'Bank: {soundbank["ShortName"]} in {json_path.name}')
                 print('=' * DIV_LENGTH)
 
                 bank_out_path = OUT_PATH.absolute() / soundbank['ShortName']
+                if bank_out_path.exists():
+                    print('Duplicate bank?! Skipping.')
+                    continue
                 create_dir(bank_out_path)
                 n_banks += 1
 
@@ -119,10 +123,10 @@ def main(argv):
 
                     os.chdir(MODULE_PATH)
 
-                print('=' * DIV_LENGTH)  # Divider
-
         else:
             print(f'Non SoundBankInfo json file skipped: {json_path}')
+
+        print('=' * DIV_LENGTH)  # Divider
 
     print(f'Done. Converted {n_memory + n_streamed} files ({n_streamed} disk, {n_memory} mem) from {n_banks} banks.')
 

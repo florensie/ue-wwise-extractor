@@ -9,7 +9,7 @@ If it doesn't, then this script won't work with the game.
 The script was only tested with Satisfactory.
 
 ## Installation
-This is a straightforward python script. You'll need a python installation of version 3.6 or greater.
+This is a straightforward python script. You'll need a python installation of version 3.8 or greater.
 
 ## Usage
 The Wwise directory should be passed to the script as it's only argument.

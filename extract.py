@@ -5,8 +5,8 @@ import subprocess
 import os
 import shutil
 
-# Require python 3.6 or above
-assert sys.version_info >= (3, 6)
+# Require python 3.8 or above
+assert sys.version_info >= (3, 8)
 
 # File paths
 MODULE_PATH = Path(__file__).parent.absolute()

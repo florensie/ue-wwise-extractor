@@ -1,5 +1,5 @@
 # Unreal Engine Wwise Extractor
-This python script uses [WWise bnk Extractor](https://github.com/eXpl0it3r/bnkextr) and [vgmstream](https://github.com/losnoco/vgmstream) to extract and convert Wwise audio from Unreal Engine games.
+This python script uses [bnktool](https://github.com/blueglyph/bnktool) and [vgmstream](https://github.com/losnoco/vgmstream) to extract and convert Wwise audio from Unreal Engine games.
 
 ## Compatibility
 This script will only work on unreal games that don't package assets or on extracted .pak files (using quickbms or otherwise).
